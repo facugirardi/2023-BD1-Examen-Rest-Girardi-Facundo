@@ -4,12 +4,13 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import *
 from .serializers import *
+from .services import *
 
 # Create your views here.
 
 @api_view(['GET'])
 def punto1(request):
-    customers = Category.objects.all()
-    serializado = CategorySerializer(customers, many=True)
+    customers = CustomerService.get_all()
+    serializado = CustomerSerializer(customers, many=True)
 
     return Response(serializado.data)

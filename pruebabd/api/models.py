@@ -55,7 +55,7 @@ class Customer(models.Model):
     fax = models.CharField(("Fax:"), max_length=24, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.CustomerID} - {self.CompanyName}'
+        return f'{self.id} - {self.company_name}'
 
 
 class Employee(models.Model):
@@ -79,7 +79,7 @@ class Employee(models.Model):
     salary = models.FloatField(null=True, blank=True)
 
     def __str__(self):
-        return f'{self.EmployeeID} - {self.last_name}, {self.first_name}'
+        return f'{self.last_name}, {self.first_name}'
 
 
 class Shipper(models.Model):
@@ -87,7 +87,7 @@ class Shipper(models.Model):
     phone = models.CharField(max_length=24, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.shipper_id} - {self.company_name}'
+        return f'{self.company_name}'
 
 
 class Order(models.Model): 
@@ -106,7 +106,7 @@ class Order(models.Model):
     ship_via = models.ForeignKey(Shipper, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.order_id} - {self.order_date}'
+        return f'{self.order_date}'
 
 
 class OrderDetails(models.Model):

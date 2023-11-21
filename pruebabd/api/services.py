@@ -1,45 +1,88 @@
 from .models import *
 
+class CategoryService():
+    def get_all():
+        return Category.objects.all()
+    
+    def fitrarComienzaCon(letra):
+        return Category.objects.filter(category_name__startswith = letra)
+    
+    def fitrarTerminaCon(letra):
+        return Category.objects.filter(category_name__endswith = letra)
+
+    def create_object(data):
+        return Category.objects.create(**data)
+
+    def delete_object(id):
+        return Category.objects.filter(id=id).remove()
+
+    def contains(data):
+        return Category.objects.filter(category_name__contains=data)
+    
+    def mayor_que(field_name, value):
+        filter_args = {f"{field_name}__gt": value}
+        return Category.objects.filter(**filter_args)
+
+    def mayor_igual(field_name, value):
+        filter_args = {f"{field_name}__gte": value}
+        return Category.objects.filter(**filter_args)
+
+    def menor_que(field_name, value):
+        filter_args = {f"{field_name}__lt": value}
+        return Category.objects.filter(**filter_args)
+
+    def menor_igual(field_name, value):
+        filter_args = {f"{field_name}__lte": value}
+        return Category.objects.filter(**filter_args)
+
+    def first():
+        return Category.objects.all().first()
+
+    def last():
+        return Category.objects.all().last()
+    
+
+
 
 class CustomerService():
-    def get_all(self):
+    def get_all():
         return Customer.objects.all()
     
-    def fitrarComienzaCon(self, letra):
+    def fitrarComienzaCon(letra):
         return Customer.objects.filter(contact_name__startswith = letra)
     
-    def fitrarTerminaCon(self, letra):
+    def fitrarTerminaCon(letra):
         return Customer.objects.filter(contact_name__endswith = letra)
 
-    def create_object(self, data):
+    def create_object(data):
         return Customer.objects.create(**data)
 
-    def delete_object(self, id):
+    def delete_object(id):
         return Customer.objects.filter(id=id).remove()
 
-    def contains(self, data):
+    def contains(data):
         return Customer.objects.filter(contact_name__contains=data)
     
-    def mayor_que(self, field_name, value):
+    def mayor_que(field_name, value):
         filter_args = {f"{field_name}__gt": value}
         return Customer.objects.filter(**filter_args)
 
-    def mayor_igual(self, field_name, value):
+    def mayor_igual(field_name, value):
         filter_args = {f"{field_name}__gte": value}
         return Customer.objects.filter(**filter_args)
 
-    def menor_que(self, field_name, value):
+    def menor_que(field_name, value):
         filter_args = {f"{field_name}__lt": value}
         return Customer.objects.filter(**filter_args)
 
-    def menor_igual(self, field_name, value):
+    def menor_igual(field_name, value):
         filter_args = {f"{field_name}__lte": value}
         return Customer.objects.filter(**filter_args)
 
-    def first(self):
+    def first():
         return Customer.objects.all().first()
 
-    def last(self):
+    def last():
         return Customer.objects.all().last()
 
 

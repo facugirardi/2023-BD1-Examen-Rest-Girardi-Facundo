@@ -101,3 +101,90 @@ class CustomerService():
     # date_value = datetime.strptime(gt, '%Y-%m-%d').date()
     # Customer.objects.filter(date_field__gt=date_value)
 
+
+
+
+class ProductService():
+    def get_all():
+        return Product.objects.all()
+    
+    def fitrarComienzaCon(letra):
+        return Product.objects.filter(product_name__startswith = letra)
+    
+    def fitrarTerminaCon(letra):
+        return Product.objects.filter(product_name__endswith = letra)
+
+    def create_object(data):
+        return Product.objects.create(**data)
+
+    def delete_object(id):
+        return Product.objects.filter(id=id).remove()
+
+    def contains(data):
+        return Product.objects.filter(product_name__contains=data)
+    
+    def mayor_que(field_name, value):
+        filter_args = {f"{field_name}__gt": value}
+        return Product.objects.filter(**filter_args)
+
+    def mayor_igual(field_name, value):
+        filter_args = {f"{field_name}__gte": value}
+        return Product.objects.filter(**filter_args)
+
+    def menor_que(field_name, value):
+        filter_args = {f"{field_name}__lt": value}
+        return Product.objects.filter(**filter_args)
+
+    def menor_igual(field_name, value):
+        filter_args = {f"{field_name}__lte": value}
+        return Product.objects.filter(**filter_args)
+
+    def first():
+        return Product.objects.all().first()
+
+    def last():
+        return Product.objects.all().last()
+    
+
+
+
+class SupplierService():
+    def get_all():
+        return Supplier.objects.all()
+    
+    def fitrarComienzaCon(letra):
+        return Supplier.objects.filter(contact_name__startswith = letra)
+    
+    def fitrarTerminaCon(letra):
+        return Supplier.objects.filter(contact_name__endswith = letra)
+
+    def create_object(data):
+        return Supplier.objects.create(**data)
+
+    def delete_object(id):
+        return Supplier.objects.filter(id=id).remove()
+
+    def contains(data):
+        return Supplier.objects.filter(contact_name__contains=data)
+    
+    def mayor_que(field_name, value):
+        filter_args = {f"{field_name}__gt": value}
+        return Supplier.objects.filter(**filter_args)
+
+    def mayor_igual(field_name, value):
+        filter_args = {f"{field_name}__gte": value}
+        return Supplier.objects.filter(**filter_args)
+
+    def menor_que(field_name, value):
+        filter_args = {f"{field_name}__lt": value}
+        return Supplier.objects.filter(**filter_args)
+
+    def menor_igual(field_name, value):
+        filter_args = {f"{field_name}__lte": value}
+        return Supplier.objects.filter(**filter_args)
+
+    def first():
+        return Supplier.objects.all().first()
+
+    def last():
+        return Supplier.objects.all().last()

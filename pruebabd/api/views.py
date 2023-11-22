@@ -10,7 +10,7 @@ from .services import *
 
 @api_view(['GET'])
 def punto1(request):
-    customers = CustomerService.get_all()
-    serializado = CustomerSerializer(customers, many=True)
+    categories = CategoryService.fitrarTerminaCon('s')
+    serializado = CategorySerializer(categories, many=True)
 
     return Response(serializado.data)

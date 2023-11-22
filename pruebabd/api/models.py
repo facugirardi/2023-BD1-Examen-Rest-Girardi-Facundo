@@ -76,7 +76,7 @@ class Employee(models.Model):
     notes = models.TextField()
     reports_to = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
     photo_path = models.CharField(max_length=255, null=True, blank=True)
-    salary = models.FloatField(null=True, blank=True)
+    salary = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.last_name}, {self.first_name}'

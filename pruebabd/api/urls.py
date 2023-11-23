@@ -2,6 +2,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('api/punto1', punto1, name='punto1'),
-    # path("supplier/<str:pk>", getSupplierById , name="getSupplierById"),
+    path("api/productos", punto1 , name="punto1"),
+    path("api/orders", punto2 , name="punto2"),
 ]
